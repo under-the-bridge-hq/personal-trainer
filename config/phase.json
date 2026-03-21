@@ -1,0 +1,43 @@
+{
+  "current_phase": 1,
+  "phases": {
+    "1": {
+      "name": "マンジャロ減量期",
+      "status": "active",
+      "calories_target": 1700,
+      "pfc": {
+        "protein_g_min": 160,
+        "fat_g_min": 40,
+        "fat_g_max": 50,
+        "carbs": "残りのカロリー（トレーニング前後に集中）"
+      },
+      "transition_trigger": {
+        "weight_kg": 92,
+        "bf_pct": 22,
+        "logic": "OR"
+      },
+      "monitoring": {
+        "muscle_danger_line_kg": 70.0,
+        "fat_loss_ratio_target": 0.75,
+        "weekly_review_day": "saturday"
+      }
+    },
+    "2": {
+      "name": "自律的ボディメイク期",
+      "status": "planned",
+      "calories_target": "maintenance - 500",
+      "method": "カーボサイクル（High Day / Low Day）",
+      "training": {
+        "frequency": "週3回",
+        "duration_min": "60-90",
+        "content": ["HIIT", "高回数コンパウンド種目"]
+      },
+      "final_target": {
+        "date": "2025-08-31",
+        "weight_kg": 84.0,
+        "bf_pct": 16.3,
+        "lbm_kg_min": 70.3
+      }
+    }
+  }
+}

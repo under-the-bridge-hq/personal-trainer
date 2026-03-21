@@ -1,0 +1,16 @@
+{
+  "_comment": "ベースラインメニュー - ユーザーから詳細データ受領後に更新",
+  "version": "0.1.0",
+  "daily_target": {
+    "calories": 1700,
+    "protein_g": 160,
+    "fat_g": 45,
+    "carbs_g": 166
+  },
+  "meals": {
+    "breakfast": [],
+    "lunch": [],
+    "dinner": [],
+    "snacks": []
+  }
+}
