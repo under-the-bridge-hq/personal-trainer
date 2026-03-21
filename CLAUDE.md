@@ -47,48 +47,48 @@
 - **メニュー切り替え**: `python3 scripts/calc.py --list` で一覧、`--menu エイリアス` で指定
 - **変更報告時**: 該当項目を除外/追加して再計算
 
-## データファイル仕様
+## フェーズ管理
 
-### 体組成CSV (`data/body/YYYY-MM.csv`)
+`config/phase.json` で管理。現在のフェーズに応じてメニューやモニタリング指標が変わる。
 
-```csv
-date,weight,bf_pct,fat_mass,lbm,water_pct,bmi,note
-2026-03-21,97.20,26.8,26.05,71.15,48.3,30.0,
+| フェーズ | 状態 | メニュー | 概要 |
+|----------|------|---------|------|
+| 1a: マンジャロ超減量期 | 完了 | マンジャロ_超減量期_1700kcal | -800kcal/day、-9kg達成 |
+| 1b: マンジャロ減量期 | **active** | マンジャロ_減量期_2000kcal | -500kcal/day、LBM回復重視 |
+| 2: 筋トレ期 | 予定 | 未定 | カーボサイクル、パーソナルジム |
+
+## リポジトリ構造
+
+```
+.claude/             # Claude Code設定
+  ├── settings.json      # hook設定
+  └── hooks/
+      └── check-doc-update.sh  # ドキュメント変更検知hook
+config/              # 設定ファイル群（詳細: config/README.md）
+  ├── profile.json       # クライアントプロファイル
+  ├── phase.json         # フェーズ計画・移行トリガー
+  ├── active_menu.json   # 現在有効なメニューへのポインタ
+  └── menus/             # メニュー定義（エイリアス管理）
+data/                # 蓄積データ（詳細: data/README.md）
+  ├── body/              # 体組成CSV（月別）
+  ├── meals/             # 食事変更ログ（日別）
+  └── baseline_menu_1700kcal.csv  # 元データ参照用
+docs/                # トレーナー人格定義（詳細: docs/README.md）
+  └── system_prompt.md
+scripts/             # 計算・分析スクリプト（詳細: scripts/README.md）
+  ├── calc.py            # PFC/カロリー計算エンジン
+  ├── trend.py           # 体組成トレンド分析
+  └── append_body_data.py # 体組成データ追記
+reports/             # レポート
+  └── weekly/            # 週間レポート
 ```
 
-| カラム | 説明 |
-|--------|------|
-| `date` | ISO 8601 (YYYY-MM-DD) |
-| `weight` | 体重 (kg) |
-| `bf_pct` | 体脂肪率 (%) |
-| `fat_mass` | 脂肪量 (kg) = weight × bf_pct / 100 |
-| `lbm` | 除脂肪体重 (kg) = weight - fat_mass |
-| `water_pct` | 体水分率 (%) |
-| `bmi` | BMI |
-| `note` | 備考（任意） |
+## hook
 
-### 食事変更ログ (`data/meals/YYYY-MM-DD.md`)
-
-ベースラインからの差分のみ記録：
-```markdown
-# 2026-03-21 食事変更
-- 夜: 納豆なし
-- 間食: プロテインバー追加 (P:15g, F:5g, C:10g, 145kcal)
-```
+`.claude/hooks/check-doc-update.sh` が `Edit|Write` 後に発火し、変更されたファイルに応じて関連ドキュメントの確認を促す。
 
 ## セッション運用
 
 - `--resume` で同一セッションを維持する前提
 - コンテキスト圧縮が起きても、データは `data/body/*.csv` に永続化されているため復元可能
 - 重要な判断（フェーズ移行等）は `reports/` にmarkdownとして記録する
-
-## リポジトリ構造
-
-```
-config/          # プロファイル、フェーズ設定、メニュー定義
-data/body/       # 体組成CSV（月別）
-data/meals/      # 食事変更ログ（日別）
-docs/            # system_prompt.md（トレーナー人格定義）
-scripts/         # calc.py, trend.py, append_body_data.py
-reports/weekly/  # 週間レポート
-```
