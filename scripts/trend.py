@@ -122,26 +122,27 @@ def check_alerts(data: list[dict]) -> list[str]:
     with open(PHASE_PATH, "r", encoding="utf-8") as f:
         phase = json.load(f)
 
-    current = phase["phases"][str(phase["current_phase"])]
-    danger_line = current.get("monitoring", {}).get("muscle_danger_line_kg", 70.0)
+    current_id = str(phase["current_phase"])
+    current = phase["phases"].get(current_id, {})
+    monitoring = current.get("monitoring", {})
+    danger_line = monitoring.get("lbm_danger_line_kg", 70.0)
 
     # 直近のLBMチェック
     recent_muscle = [r["lbm"] for r in data[-3:] if r.get("lbm")]
     if recent_muscle and min(recent_muscle) < danger_line:
-        alerts.append(f"⚠️ 筋肉量が危険ライン({danger_line}kg)を下回っています: {min(recent_muscle):.1f}kg")
+        alerts.append(f"⚠️ LBMが危険ライン({danger_line}kg)を下回っています: {min(recent_muscle):.1f}kg")
 
     if len(recent_muscle) >= 3 and all(
         recent_muscle[i] < recent_muscle[i - 1] for i in range(1, len(recent_muscle))
     ):
-        alerts.append("⚠️ 筋肉量が3日連続で減少傾向です。タンパク質摂取を+20g検討してください。")
+        alerts.append("⚠️ LBMが3日連続で減少傾向です。タンパク質摂取を+20g検討してください。")
 
     # フェーズ移行チェック
     latest = data[-1]
     trigger = current.get("transition_trigger", {})
-    if latest.get("weight") and latest["weight"] <= trigger.get("weight_kg", 0):
-        alerts.append(f"🎯 体重が{trigger['weight_kg']}kgに到達！フェーズ2移行を検討してください。")
-    if latest.get("bf_pct") and latest["bf_pct"] <= trigger.get("bf_pct", 0):
-        alerts.append(f"🎯 体脂肪率が{trigger['bf_pct']}%に到達！フェーズ2移行を検討してください。")
+    conditions = trigger.get("conditions", [])
+    if latest.get("bf_pct") and latest["bf_pct"] <= 20.0 and any("体脂肪率" in c for c in conditions):
+        alerts.append("🎯 体脂肪率が20%に到達！フェーズ移行を検討してください。")
 
     return alerts
 

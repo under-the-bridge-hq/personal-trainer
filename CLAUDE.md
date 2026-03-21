@@ -42,8 +42,9 @@
 
 ## 食事計算ルール
 
-- **ベースラインメニュー**: `config/menu_and_nutrition.json` に定義
+- **メニュー管理**: `config/menus/` に複数メニューをエイリアスで管理。`config/active_menu.json` が現在有効なメニューを指す
 - **計算方法**: 必ず `scripts/calc.py` を実行して算出する（LLMの暗算禁止）
+- **メニュー切り替え**: `python3 scripts/calc.py --list` で一覧、`--menu エイリアス` で指定
 - **変更報告時**: 該当項目を除外/追加して再計算
 
 ## データファイル仕様

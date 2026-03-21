@@ -1,10 +1,11 @@
 {
   "name": "クライアント",
   "birth_date": "1980-02-17",
-  "age": 45,
+  "age": 46,
   "height_cm": 180,
   "sex": "male",
   "activity_level": "sedentary",
+  "tdee_estimate": 2500,
   "baseline": {
     "date": "2026-01-03",
     "weight_kg": 106.2,
@@ -16,6 +17,8 @@
   "medication": {
     "name": "マンジャロ（チルゼパチド）",
     "type": "GLP-1受容体作動薬",
-    "effects": ["食欲抑制", "インスリン感受性改善"]
+    "effects": ["食欲抑制", "インスリン感受性改善"],
+    "start_date": "2026-01-03",
+    "stop_condition": "体脂肪率20%未満 or 筋トレ開始時"
   }
 }

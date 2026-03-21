@@ -1,42 +1,64 @@
 {
-  "current_phase": 1,
+  "current_phase": "1b",
+  "tdee_estimate": 2500,
   "phases": {
-    "1": {
+    "1a": {
+      "name": "マンジャロ超減量期",
+      "status": "completed",
+      "period": "2026-01-03 〜 2026-03-21",
+      "menu": "マンジャロ_超減量期_1700kcal",
+      "calories_target": 1700,
+      "deficit_from_tdee": -800,
+      "notes": "-9kg達成。LBM減少比率が高い（59.9%、目標75%未達）ため超減量期を終了"
+    },
+    "1b": {
       "name": "マンジャロ減量期",
       "status": "active",
-      "calories_target": 1700,
+      "period": "2026-03-21 〜 2026-04中旬",
+      "menu": null,
+      "calories_target": 2000,
+      "deficit_from_tdee": -500,
+      "medication": "マンジャロ継続",
       "pfc": {
         "protein_g_min": 160,
         "fat_g_min": 40,
-        "fat_g_max": 50,
-        "carbs": "残りのカロリー（トレーニング前後に集中）"
+        "fat_g_max": 55,
+        "carbs": "残りのカロリー"
       },
       "transition_trigger": {
-        "weight_kg": 92,
-        "bf_pct": 22,
+        "conditions": [
+          "筋トレ開始（4月中旬予定）",
+          "体脂肪率 20% 未満"
+        ],
         "logic": "OR"
       },
       "monitoring": {
-        "muscle_danger_line_kg": 70.0,
+        "lbm_danger_line_kg": 70.0,
         "fat_loss_ratio_target": 0.75,
         "weekly_review_day": "saturday"
       }
     },
     "2": {
-      "name": "自律的ボディメイク期",
+      "name": "筋トレ期",
       "status": "planned",
-      "calories_target": "maintenance - 500",
+      "period": "2026-04中旬〜",
+      "medication": "マンジャロ停止（体脂肪率20%未満到達 or 筋トレ開始時）",
       "method": "カーボサイクル（High Day / Low Day）",
+      "calories_target": "維持カロリーを見定めながら調整",
       "training": {
-        "frequency": "週3回",
-        "duration_min": "60-90",
-        "content": ["HIIT", "高回数コンパウンド種目"]
+        "facility": "パーソナルトレーナージム",
+        "frequency": "週2-3回",
+        "approach": "ジムのトレーナーとClaude双方のアドバイスを統合",
+        "content": "トレーナーと相談の上決定"
       },
-      "final_target": {
-        "date": "2025-08-31",
-        "weight_kg": 84.0,
-        "bf_pct": 16.3,
-        "lbm_kg_min": 70.3
+      "goals": {
+        "primary": "LBM維持しつつ脂肪を落とす",
+        "method": "維持カロリーの見定め + 栄養素コントロール + トレーニング"
+      },
+      "monitoring": {
+        "lbm_danger_line_kg": 70.0,
+        "fat_loss_ratio_target": 0.75,
+        "weekly_review_day": "saturday"
       }
     }
   }
