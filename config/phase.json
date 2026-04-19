@@ -43,18 +43,35 @@
       "name": "筋トレ期",
       "status": "active",
       "period": "2026-04-19 〜",
-      "medication": "マンジャロ停止（体脂肪率20%未満到達 or 筋トレ開始時）",
-      "method": "カーボサイクル（High Day / Low Day）",
-      "calories_target": "維持カロリーを見定めながら調整",
+      "medication": {
+        "status": "減薬中",
+        "stop_target": "2026-05中",
+        "notes": "減薬しながら5月を目処に停止予定"
+      },
+      "method": "カーボサイクル（トレ日 High / オフ日 Low）",
+      "carb_cycle": {
+        "training_day": {
+          "menu": "筋トレ期_トレ日_2500kcal",
+          "calories_target": 2500,
+          "pfc": { "protein_g": 180, "fat_g": 50, "carbs_g": 340 }
+        },
+        "off_day": {
+          "menu": "筋トレ期_オフ日_2000kcal",
+          "calories_target": 2000,
+          "pfc": { "protein_g": 175, "fat_g": 49, "carbs_g": 219 }
+        }
+      },
       "training": {
         "facility": "パーソナルトレーナージム",
-        "frequency": "週2-3回",
-        "approach": "ジムのトレーナーとClaude双方のアドバイスを統合",
-        "content": "トレーナーと相談の上決定"
+        "frequency_per_week": 2,
+        "interval_days": "3-4",
+        "schedule_pattern": "平日(火〜木) + 週末(土日いずれか)",
+        "approach": "メニュー設計はパーソナルトレーナーに一任。Claude側ではトレ予定日の管理・栄養面のサポートに集中",
+        "schedule_file": "config/training_schedule.json"
       },
       "goals": {
         "primary": "LBM維持しつつ脂肪を落とす",
-        "method": "維持カロリーの見定め + 栄養素コントロール + トレーニング"
+        "method": "カーボサイクル + トレ日の栄養補給最適化 + パーソナルトレーニング"
       },
       "monitoring": {
         "lbm_danger_line_kg": 70.0,

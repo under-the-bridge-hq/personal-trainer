@@ -1,4 +1,8 @@
 {
-  "active": "マンジャロ_減量期_2000kcal",
-  "description": "現在有効なメニューのエイリアス。config/menus/{active}.json を参照する。"
+  "active": "筋トレ期_オフ日_2000kcal",
+  "description": "現在有効なメニューのエイリアス。config/menus/{active}.json を参照する。フェーズ2はカーボサイクル運用のため、トレ日は --menu 筋トレ期_トレ日_2500kcal を指定する。",
+  "carb_cycle": {
+    "off_day": "筋トレ期_オフ日_2000kcal",
+    "training_day": "筋トレ期_トレ日_2500kcal"
+  }
 }

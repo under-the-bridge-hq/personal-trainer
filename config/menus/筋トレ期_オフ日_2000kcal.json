@@ -1,0 +1,125 @@
+{
+  "name": "筋トレ期_オフ日_2000kcal",
+  "version": "1.0.0",
+  "_note": "フェーズ2筋トレ期のオフ日（非トレーニング日）メニュー。マンジャロ_減量期_2000kcalと同等構成。",
+  "daily_target": {
+    "calories": 2000,
+    "protein_g": 175,
+    "fat_g": 49,
+    "carbs_g": 219
+  },
+  "items": [
+    {
+      "id": "朝_もち",
+      "meal": "朝",
+      "name": "もち",
+      "unit": "1個(118kcal)",
+      "quantity": 2.0,
+      "per_unit": { "calories": 118, "protein": 2.0, "fat": 0.3, "carbs": 26.8 }
+    },
+    {
+      "id": "朝_きなこ",
+      "meal": "朝",
+      "name": "きなこ",
+      "unit": "10g",
+      "quantity": 1.0,
+      "per_unit": { "calories": 32, "protein": 2.57, "fat": 1.8, "carbs": 2.0 }
+    },
+    {
+      "id": "朝_砂糖",
+      "meal": "朝",
+      "name": "砂糖",
+      "unit": "10g",
+      "quantity": 1.0,
+      "per_unit": { "calories": 38.7, "protein": 0, "fat": 0, "carbs": 10.0 }
+    },
+    {
+      "id": "間食1_プロテイン",
+      "meal": "間食",
+      "name": "プロテイン(WPI)+牛乳",
+      "unit": "25g(2杯)+牛乳100cc",
+      "quantity": 1.0,
+      "per_unit": { "calories": 158, "protein": 25.9, "fat": 4.115, "carbs": 5.845 }
+    },
+    {
+      "id": "昼_白米",
+      "meal": "昼",
+      "name": "白米",
+      "unit": "100g",
+      "quantity": 2.0,
+      "per_unit": { "calories": 160.5, "protein": 2.5, "fat": 0.3, "carbs": 37.0 }
+    },
+    {
+      "id": "昼_卵",
+      "meal": "昼",
+      "name": "卵",
+      "unit": "1個",
+      "quantity": 2.0,
+      "per_unit": { "calories": 73.5, "protein": 6.2, "fat": 5.3, "carbs": 0.2 }
+    },
+    {
+      "id": "昼_納豆",
+      "meal": "昼",
+      "name": "納豆",
+      "unit": "1パック",
+      "quantity": 1.0,
+      "per_unit": { "calories": 129, "protein": 9.0, "fat": 5.0, "carbs": 12.0 }
+    },
+    {
+      "id": "間食2_プロテイン",
+      "meal": "間食",
+      "name": "プロテイン(WPI)+牛乳",
+      "unit": "25g(2杯)+牛乳100cc",
+      "quantity": 1.0,
+      "per_unit": { "calories": 158, "protein": 25.9, "fat": 4.115, "carbs": 5.845 }
+    },
+    {
+      "id": "夜_ブロッコリー",
+      "meal": "夜",
+      "name": "ブロッコリー",
+      "unit": "100g",
+      "quantity": 1.0,
+      "per_unit": { "calories": 25, "protein": 3.9, "fat": 0.9, "carbs": 0.4 }
+    },
+    {
+      "id": "夜_ささみ",
+      "meal": "夜",
+      "name": "ささみ",
+      "unit": "100g",
+      "quantity": 1.6,
+      "per_unit": { "calories": 99.375, "protein": 23.0, "fat": 0.8, "carbs": 0.0 }
+    },
+    {
+      "id": "夜_白米",
+      "meal": "夜",
+      "name": "白米",
+      "unit": "100g",
+      "quantity": 1.0,
+      "per_unit": { "calories": 161, "protein": 2.5, "fat": 0.3, "carbs": 37.0 }
+    },
+    {
+      "id": "夜_卵",
+      "meal": "夜",
+      "name": "卵",
+      "unit": "1個",
+      "quantity": 2.0,
+      "per_unit": { "calories": 73.5, "protein": 6.2, "fat": 5.3, "carbs": 0.2 }
+    },
+    {
+      "id": "夜_納豆",
+      "meal": "夜",
+      "name": "納豆",
+      "unit": "1パック",
+      "quantity": 1.0,
+      "per_unit": { "calories": 129, "protein": 9.0, "fat": 5.0, "carbs": 12.0 }
+    },
+    {
+      "id": "間食3_プロテイン",
+      "meal": "間食",
+      "name": "プロテイン(WPI)+牛乳",
+      "unit": "25g(2杯)+牛乳100cc",
+      "quantity": 1.0,
+      "per_unit": { "calories": 158, "protein": 25.9, "fat": 4.115, "carbs": 5.845 }
+    }
+  ]
+}

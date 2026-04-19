@@ -1,0 +1,15 @@
+{
+  "_description": "パーソナルトレーニングの予定・実施履歴。menu選択(オフ日/トレ日)の判定にも使用する。",
+  "frequency_per_week": 2,
+  "weekday_pattern": ["火", "水", "木"],
+  "weekend_pattern": ["土", "日"],
+  "interval_days": "3-4",
+  "facility": "パーソナルトレーナージム",
+  "scheduled": [
+    {"date": "2026-04-22", "day": "水", "status": "planned"},
+    {"date": "2026-04-25", "day": "土", "status": "planned"}
+  ],
+  "completed": [
+    {"date": "2026-04-19", "day": "日", "status": "trial", "note": "体験レッスン(短時間)"}
+  ]
+}
